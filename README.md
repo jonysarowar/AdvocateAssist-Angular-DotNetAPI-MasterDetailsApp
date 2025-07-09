@@ -47,3 +47,7 @@ This application allows users (lawyers or administrators) to:
 ✅ Modular Entity Relationships (EF Core)
 
 ✅ Clean UI with Angular & Bootstrap
+
+---
+## 👨‍💻 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or improve.
