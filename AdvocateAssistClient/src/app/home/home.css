@@ -1,0 +1,9 @@
+.home-wrapper{
+  background-image: url('/images/lady-justice-drawing-clip-art-symbol-6ce13cc93dde249cc7fb11673af71ecb.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}

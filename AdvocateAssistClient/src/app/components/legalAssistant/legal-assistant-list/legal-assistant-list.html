@@ -1,0 +1,66 @@
+<h2>Legalassistant List</h2>
+
+<p>
+  <a routerLink="/create" class="btn btn-outline-primary"
+    >Add Legalassistant</a
+  >
+</p>
+
+<div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Full Name</th>
+        <!-- <th>LName</th> -->
+        <th>Joining Date</th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Active</th>
+        <th>NID No</th>
+        <th>Case Details</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let assistant of legalAssistants">
+          <td><img [src]="imageUrlBase + assistant.picture" alt="image" style="width: 50px; height: 50px; object-fit: cover"></td>
+            <td>{{assistant.legalAssistantFname }} {{assistant.legalAssistantLname }}</td>
+            <!-- <td>{{assistant.legalAssistantLname }}</td> -->
+            <td>{{assistant.joinDate | date:'yyyy-MM-dd' }}</td>
+            <td>{{assistant.email }}</td>
+            <td>{{assistant.mobileNo }}</td>
+            <td>
+              <span *ngIf="assistant.isActive" class="badge bg-success">Yes</span>
+              <span *ngIf="!assistant.isActive" class="badge bg-danger">No</span>
+            </td>
+            <!-- <td>{{assistant.isActive }}</td> -->
+            <td>{{assistant.nidNumber }}</td>
+            <td>
+              <ol class="list-group list-group-numbered">
+                <li *ngFor="let lac of assistant.legalAssistantCases" class="list-group-item">
+                  <div><strong>Case No:</strong> {{ lac.caseNumber }}</div>
+                  <div><strong>Title:</strong> {{ lac.caseTitle }}</div>
+                  <div><strong>FIR No:</strong> {{ lac.firnumber || 'N/A' }}</div>
+                  <div><strong>Filing Date:</strong> {{ lac.filingDate | date:'yyyy-MM-dd' }}</div>
+                </li>
+              </ol>
+            </td>
+
+            <td><a
+            [routerLink]="['/edit', assistant.legalAssistantId]"
+            class="btn btn-warning btn-sm ms-2"
+            >Edit</a>
+          <button
+            (click)="deleteCandidate(assistant.legalAssistantId)"
+            class="btn btn-danger btn-sm ms-2"
+          >
+            Delete
+          </button>
+          </td>
+
+        </tr>
+    </tbody>
+
+  </table>
+</div>
